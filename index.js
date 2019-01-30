@@ -20,7 +20,7 @@ $.get(searchURL, function(respond){
     let owner = repo.owner.login
     let ownerAvatar = repo.owner.avatar_url
     let ownerLink = repo.owner.html_url
-return `<li><h2><a href='${url}'>${name}</a></h2><br>${description}<br><strong><a href='{ownerLink}'>${owner} <img src='${ownerAvatar}' height='20'></a></li>`
+return `<li><h3><a href='${url}'>${name}</a></h3>${description}<br><strong><a href='{ownerLink}'>${owner} <img src='${ownerAvatar}' height='20'></a><a href="#" onclick="showCommits(this)">Show Commits</a></li>`
   }).join("")
   + "</ul>"
 
@@ -28,8 +28,8 @@ return `<li><h2><a href='${url}'>${name}</a></h2><br>${description}<br><strong><
 
 })
 });
+}
 
-
-
+function showCommits(){
 
 }
