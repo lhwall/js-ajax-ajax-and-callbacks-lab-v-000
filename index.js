@@ -9,8 +9,8 @@ console.log("Search URL is: " + searchURL)
 
 
 $(document).ready(function(){
-$.get(searchURL, function(response){
-  console.log(Object.keys(response.items[0].owner))
+$.get(searchURL, function(respond){
+  console.log(Object.keys(respond.items[0].owner))
   let reposHTML = "<ul>" +
   response.items.map(
     repo =>{
