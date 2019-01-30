@@ -10,7 +10,7 @@ console.log("Search URL is: " + searchURL)
 
 $(document).ready(function(){
 $.get(searchURL, function(respond){
-  console.log(Object.keys(respond.items[0].owner))
+  //console.log(Object.keys(respond.items[0].owner))
   let reposHTML = "<ul>" +
   respond.items.map(
     repo =>{
@@ -33,18 +33,17 @@ return `<li><h3><a href='${url}'>${name}</a></h3>${description}<br><strong><a hr
 function showCommits(el){
   repository = el.dataset.repository
   repositoryOwner = el.dataset.owner
-  debugger
-  let getCommitsURL = "https://api.github.com/" + repositoryOwner + "/" + repository + "/commits"
+  let getCommitsURL = "https://api.github.com/repos/" + repositoryOwner + "/" + repository + "/commits"
   $(document).ready(function(){
   $.get(getCommitsURL, function(respond){
-    console.log(Object.keys(respond.items[0].owner))
+  console.log(Object.keys(respond[0]))
     let commitsHTML = "<ul>" +
-    respond.items.map(
+    respond.map(
       commit =>{
       let sha = commit.sha
-      let authorName = commit.author.name
-      let authorLogin = commit.author.login
-      let authorAvatar = commit.author.avatar_url
+      let authorName = commit.committer.name
+      let authorLogin = commit.committer.login
+      let authorAvatar = commit.committer.avatar_url
   return `<li><strong>${sha} ${authorName} <img src='${authorAvatar}' height='20'> ${authorLogin}</li>`
     }).join("")
     + "</ul>"
