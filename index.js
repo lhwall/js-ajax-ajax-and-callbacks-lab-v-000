@@ -23,9 +23,10 @@ $.get(searchURL, function(response){
 return `<li><h2><a href='${url}'>${name}</a></h2><br>${description}<br><strong><a href='{ownerLink}'>${owner} <img src='${ownerAvatar}' height='20'></a></li>`
   }).join("")
   + "</ul>"
-  $("#results").html(reposHTML)
+  
 
 })
+$("#results").html(reposHTML)
 });
 
 
