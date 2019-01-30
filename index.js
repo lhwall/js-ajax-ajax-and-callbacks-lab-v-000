@@ -26,7 +26,7 @@ return `<li><h3><a href='${url}'>${name}</a></h3>${description}<br><strong><a hr
 
   document.getElementById("results").innerHTML = reposHTML
 
-})
+}).fail(displayError)
 });
 }
 
@@ -51,4 +51,8 @@ function showCommits(el){
     document.getElementById("details").innerHTML = commitsHTML
   })
   });
+  }
+
+  function displayError(){
+    document.getElementById("errors").innerHTML = "I'm sorry, there's been an error. Please try again."
   }
