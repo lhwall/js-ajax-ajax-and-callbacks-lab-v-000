@@ -12,7 +12,7 @@ $(document).ready(function(){
 $.get(searchURL, function(respond){
   console.log(Object.keys(respond.items[0].owner))
   let reposHTML = "<ul>" +
-  response.items.map(
+  respond.items.map(
     repo =>{
     let name = repo.name
     let description = repo.description
