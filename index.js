@@ -8,7 +8,7 @@ const searchURL = "https://api.github.com/search/repositories?q=" + searchTerms
 console.log("Search URL is: " + searchURL)
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
 $.get(searchURL, function(respond){
   //console.log(Object.keys(respond.items[0].owner))
   let reposHTML = "<ul>" +
@@ -27,14 +27,14 @@ return `<li><h3><a href='${url}'>${name}</a></h3>${description}<br><strong><a hr
   document.getElementById("results").innerHTML = reposHTML
 
 }).fail(displayError)
-});
+// });
 }
 
 function showCommits(el){
   repository = el.dataset.repository
   repositoryOwner = el.dataset.owner
   let getCommitsURL = "https://api.github.com/repos/" + repositoryOwner + "/" + repository + "/commits"
-  $(document).ready(function(){
+  // $(document).ready(function(){
   $.get(getCommitsURL, function(respond){
   console.log(Object.keys(respond[0]))
     let commitsHTML = "<ul>" +
@@ -50,7 +50,7 @@ function showCommits(el){
 
     document.getElementById("details").innerHTML = commitsHTML
   })
-  });
+  // });
   }
 
   function displayError(){
