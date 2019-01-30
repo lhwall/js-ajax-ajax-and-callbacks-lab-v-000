@@ -9,10 +9,12 @@ console.log("Search URL is: " + searchURL)
 
 
 $(document).ready(function(){
-$.get('searchURL'), function(response){
+$.get(searchURL, function(response){
   $("#results").html(response)
-}
-
+})
 });
+
+
+
 debugger
 }
